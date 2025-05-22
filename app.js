@@ -1,4 +1,4 @@
-const { alias } = require("yargs");
+const { alias, describe } = require("yargs");
 const {crearArchivo }= require("./ayudas/multiplicar");
 const { type } = require("os");
 
@@ -6,16 +6,19 @@ const argv= require("yargs")
 .options({'b':{
         alias:'base',
         type:'number',
-        demandOption:true},
+        demandOption:true,
+    describe: 'Indica el numero que se va a multiplicar.'},
         'l':{
         alias:'listar',
         type:"boolean",
         default:false,
+        describe:'Muestra la tabla por consola.'
         },
         'h':{
             alias:'hasta',
             type:'number',
-            default:10       
+            default:10,
+            describe:'Modifica el tamaño de la tabla.'
         }
     })
 .check((argv, options) =>{
